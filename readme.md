@@ -5,6 +5,7 @@
 <p align="center"><strong>A WeakRef-based cache that automatically evicts entries when values are garbage collected</strong></p>
 
 <p align="center">
+  <a href="https://github.com/mstuart/weakref-store/actions/workflows/main.yml"><img src="https://github.com/mstuart/weakref-store/actions/workflows/main.yml/badge.svg" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
   <a href="https://www.npmjs.com/package/weakref-store"><img src="https://img.shields.io/npm/v/weakref-store?label=npm" alt="npm"></a>
   <img src="https://img.shields.io/badge/node-%E2%89%A520-339933.svg" alt="Node 20+">
