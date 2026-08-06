@@ -50,8 +50,8 @@ export default class WeakCache<K = string, V extends Record<string, unknown> = R
 	/**
 	Set a key-value pair. The value must be an object (required for WeakRef).
 
-	@param key - The key.
-	@param value - The value to cache. Must be an object.
+	@param key - Lookup key, held strongly; only the value is weakly referenced.
+	@param value - Object or function to cache weakly, so it can be collected once nothing else holds it. Primitives are rejected.
 	*/
 	set(key: K, value: V): void;
 
