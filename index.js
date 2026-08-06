@@ -10,7 +10,7 @@ export default class WeakCache {
 	Create a new WeakCache.
 
 	@param {object} [options] - Options for the cache.
-	@param {Function} [options.onEvict] - Callback invoked with the key when an entry is evicted by GC.
+	@param {(...arguments_: unknown[]) => unknown} [options.onEvict] - Callback invoked with the key when an entry is evicted by GC.
 	*/
 	constructor(options = {}) {
 		this.#onEvict = options.onEvict;
@@ -25,7 +25,7 @@ export default class WeakCache {
 	/**
 	Get the value for a key, or undefined if the key does not exist or has been collected.
 
-	@param {*} key - The key to look up.
+	@param {unknown} key - The key to look up.
 	@returns {object|undefined} The cached value, or undefined.
 	*/
 	get(key) {
@@ -46,8 +46,8 @@ export default class WeakCache {
 	/**
 	Set a key-value pair. The value must be an object (required for WeakRef).
 
-	@param {*} key - The key.
-	@param {object} value - The value to cache. Must be an object.
+	@param {unknown} key - Lookup key, held strongly; only the value is weakly referenced.
+	@param {object} value - Object or function to cache weakly, so it can be collected once nothing else holds it. Primitives are rejected.
 	*/
 	set(key, value) {
 		if (typeof value !== 'object' && typeof value !== 'function') {
@@ -73,7 +73,7 @@ export default class WeakCache {
 	/**
 	Check if a key exists and its value is still alive.
 
-	@param {*} key - The key to check.
+	@param {unknown} key - The key to check.
 	@returns {boolean} True if the key exists and the value is alive.
 	*/
 	has(key) {
@@ -93,7 +93,7 @@ export default class WeakCache {
 	/**
 	Delete an entry.
 
-	@param {*} key - The key to delete.
+	@param {unknown} key - The key to delete.
 	@returns {boolean} True if the entry existed.
 	*/
 	delete(key) {
