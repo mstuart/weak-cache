@@ -2,31 +2,6 @@
   "name": "weakref-store",
   "version": "1.0.0",
   "description": "A WeakRef-based cache that automatically evicts entries when values are garbage collected",
-  "license": "MIT",
-  "repository": "mstuart/weakref-store",
-  "author": {
-    "name": "Mark Stuart",
-    "email": "mstuart@users.noreply.github.com",
-    "url": "https://github.com/mstuart"
-  },
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "default": "./index.js"
-    }
-  },
-  "sideEffects": false,
-  "engines": {
-    "node": ">=22"
-  },
-  "scripts": {
-    "test": "xo && ava && tsd"
-  },
-  "files": [
-    "index.js",
-    "index.d.ts"
-  ],
   "keywords": [
     "cache",
     "weak",
@@ -38,9 +13,37 @@
     "registry",
     "evict"
   ],
+  "repository": "mstuart/weakref-store",
+  "license": "MIT",
+  "author": {
+    "name": "Mark Stuart",
+    "email": "mstuart@users.noreply.github.com",
+    "url": "https://github.com/mstuart"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "test": "ava && tsd"
+  },
   "devDependencies": {
+    "@biomejs/biome": "2.5.6",
     "ava": "^8",
     "tsd": "^0.33",
-    "xo": "^4.0"
+    "ultracite": "7.10.2"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
