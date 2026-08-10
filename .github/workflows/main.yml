@@ -6,13 +6,12 @@ jobs:
   test:
     name: Node.js ${{ matrix.node-version }}
     runs-on: ubuntu-latest
-    fail-fast: false
     strategy:
+      fail-fast: false
       matrix:
         node-version:
           - 24
           - 22
-          - 20
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
